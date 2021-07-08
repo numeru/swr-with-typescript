@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import useSWR from 'swr';
+import fetcher from './utils/fetcher';
 
 function App() {
+  const { data } = useSWR(
+    'https://267a8b34-4ac1-432b-aa85-9249f3ce3b02.mock.pstmn.io/user/profile',
+    fetcher
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span>{data.name}</span>
     </div>
   );
 }
