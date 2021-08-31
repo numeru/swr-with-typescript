@@ -14,6 +14,8 @@ const { data: user, isValidating } = useSWR('/user', fetcher, {
 
 ## 2. useSWRImmutable
 
+- 다시 변경되지 않는다.
+
 ```ts
 const { data: user, isValidating } = useSWRImmutable('/user', fetcher, {
   onSuccess: () => console.log('immutable success'),
